@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inazuma Eleven Fan Site</title>
+
+  <style>
+    /* MODE CLAIR */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: #001f66;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+
+    header img {
+      max-width: 300px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    header button {
+      margin-top: 10px;
+    }
+
+    nav {
+      background-color: #0033cc;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #002080;
+    }
+
+    p, li {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    button {
+      background-color: #0044cc;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #3366ff;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #001f66;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    /* MODE SOMBRE */
+    body.dark {
+      background-color: #0f172a;
+      color: #e5e7eb;
+    }
+
+    /* Correction : regrouper header, nav et footer */
+    body.dark header,
+    body.dark nav,
+    body.dark footer {
+      background-color: #020617;
+    }
+
+    body.dark h2 {
+      color: #60a5fa;
+    }
+
+    body.dark button {
+      background-color: #1d4ed8;
+    }
+
+    body.dark .gallery img {
+      box-shadow: 0 4px 10px rgba(255,255,255,0.15);
+    }
+
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="73916e11-f31e-43a1-8354-6119557522c8.png" alt="Logo Inazuma Eleven">
+    <h1>🌟 Inazuma Eleven Fan Site 🌟</h1>
+    <button onclick="toggleDarkMode()">🌙 Mode sombre</button>
+  </header>
+
+  <!-- MENU -->
+  <nav>
+    <a href="#presentation">Présentation</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#personnages">Personnages</a>
+  </nav>
+
+  <!-- PRESENTATION -->
+  <section id="presentation">
+    <h2>Présentation</h2>
+    <p>
+      <strong>Inazuma Eleven</strong> est un anime emblématique mêlant football et pouvoirs spéciaux.
+      Suivez Mark Evans et l’équipe de Raimon dans leur quête vers la victoire.
+    </p>
+    <button onclick="alert('🔥 Allez Raimon ⚽ !')">Encourager l’équipe</button>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <h2>Galerie d'images</h2>
+    <div class="gallery">
+
+      <!-- ECOLE RAIMON -->
+      <a href="ecole-raimon.png" target="_blank">
+        <img src="ecole-raimon.png" alt="École Raimon">
+      </a>
+
+      <!-- MARK EVANS -->
+      <a href="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" target="_blank">
+        <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
+      </a>
+
+      <!-- AXEL BLAZE -->
+      <a href="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" target="_blank">
+        <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PERSONNAGES -->
+  <section id="personnages">
+    <h2>Personnages Principaux</h2>
+    <ul>
+      <li><strong>Mark Evans</strong> : Gardien de but et capitaine de Raimon.</li>
+      <li><strong>Axel Blaze</strong> : Attaquant légendaire au tir du tigre.</li>
+      <li><strong>Jude Sharp</strong> : Stratège hors pair.</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
+  </footer>
+
+  <!-- SCRIPT MODE SOMBRE -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+
+</body>
+</html>
