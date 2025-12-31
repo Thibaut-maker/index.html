@@ -11,7 +11,7 @@
       font-family: Arial, sans-serif;
       background-color: #e6f0ff;
       color: #333;
-      transition: 0.3s;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     header {
@@ -33,6 +33,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -68,7 +69,6 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      margin-top: 10px;
     }
 
     button:hover {
@@ -86,7 +86,7 @@
       width: 220px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .gallery img:hover {
@@ -108,8 +108,8 @@
     }
 
     body.dark header,
-    body.dark footer,
-    body.dark nav {
+    body.dark nav,
+    body.dark footer {
       background-color: #020617;
     }
 
@@ -124,60 +124,70 @@
     body.dark .gallery img {
       box-shadow: 0 4px 10px rgba(255,255,255,0.15);
     }
+
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
     <img src="73916e11-f31e-43a1-8354-6119557522c8.png" alt="Logo Inazuma Eleven">
     <h1>🌟 Inazuma Eleven Fan Site 🌟</h1>
     <button onclick="toggleDarkMode()">🌙 Mode sombre</button>
   </header>
 
+  <!-- MENU -->
   <nav>
     <a href="#presentation">Présentation</a>
     <a href="#galerie">Galerie</a>
     <a href="#personnages">Personnages</a>
+    <!-- Lien ajouté -->
+    <a href="https://inazumatv.fr/" target="_blank">Inazuma TV</a>
   </nav>
 
+  <!-- PRESENTATION -->
   <section id="presentation">
     <h2>Présentation</h2>
     <p>
-      <strong>Inazuma Eleven</strong> est un anime mêlant football et techniques spéciales.
-      Suivez Mark Evans et l’équipe de Raimon dans leur quête de victoire.
+      <strong>Inazuma Eleven</strong> est un anime emblématique mêlant football et pouvoirs spéciaux.
+      Suivez Mark Evans et l’équipe de Raimon dans leur quête vers la victoire.
     </p>
     <button onclick="alert('🔥 Allez Raimon ⚽ !')">Encourager l’équipe</button>
   </section>
 
+  <!-- GALERIE -->
   <section id="galerie">
     <h2>Galerie d'images</h2>
     <div class="gallery">
-
       <a href="ecole-raimon.png" target="_blank">
         <img src="ecole-raimon.png" alt="École Raimon">
       </a>
-
       <a href="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" target="_blank">
         <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
       </a>
-
       <a href="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" target="_blank">
         <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
       </a>
-
     </div>
   </section>
 
+  <!-- PERSONNAGES -->
   <section id="personnages">
     <h2>Personnages Principaux</h2>
     <ul>
-      <li><strong>Mark Evans</strong> : Gardien et capitaine.</li>
+      <li><strong>Mark Evans</strong> : Gardien de but et capitaine de Raimon.</li>
       <li><strong>Axel Blaze</strong> : Attaquant légendaire.</li>
-      <li><strong>Jude Sharp</strong> : Stratège de génie.</li>
+      <li><strong>Jude Sharp</strong> : Stratège hors pair.</li>
     </ul>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
   </footer>
