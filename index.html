@@ -6,8 +6,13 @@
   <title>Inazuma Eleven Fan Site</title>
 
   <style>
+    /* TRANSITIONS GLOBALES */
     * {
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      transition:
+        background-color 0.6s ease,
+        color 0.6s ease,
+        box-shadow 0.6s ease,
+        transform 0.3s ease;
     }
 
     body {
@@ -15,8 +20,55 @@
       font-family: Arial, sans-serif;
       background-color: #e6f0ff;
       color: #333;
+      overflow-x: hidden;
     }
 
+    /* OPENING */
+    #opening {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #1e40af, #020617);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: openingFadeOut 3s forwards;
+    }
+
+    #opening h1 {
+      color: white;
+      font-size: 48px;
+      letter-spacing: 4px;
+      animation: titleFlash 1.5s ease-in-out infinite;
+    }
+
+    #opening p {
+      color: #93c5fd;
+      font-size: 20px;
+      margin-top: 10px;
+      opacity: 0;
+      animation: subtitleAppear 2s forwards;
+      animation-delay: 0.8s;
+    }
+
+    @keyframes titleFlash {
+      0% { text-shadow: 0 0 10px #3b82f6; }
+      50% { text-shadow: 0 0 30px #60a5fa; }
+      100% { text-shadow: 0 0 10px #3b82f6; }
+    }
+
+    @keyframes subtitleAppear {
+      to { opacity: 1; }
+    }
+
+    @keyframes openingFadeOut {
+      0% { opacity: 1; }
+      70% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    /* HEADER */
     header {
       background-color: #001f66;
       text-align: center;
@@ -54,10 +106,6 @@
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     section {
       max-width: 1000px;
       margin: auto;
@@ -85,10 +133,6 @@
 
     button:hover {
       transform: scale(1.08);
-    }
-
-    button:active {
-      transform: scale(0.95);
     }
 
     /* GALERIE */
@@ -165,9 +209,16 @@
 
 <body>
 
+  <!-- OPENING -->
+  <div id="opening">
+    <h1>⚡ INAZUMA ELEVEN ⚡</h1>
+    <p>Fan Site</p>
+  </div>
+
+  <!-- HEADER -->
   <header>
     <img src="73916e11-f31e-43a1-8354-6119557522c8.png" alt="Logo Inazuma Eleven">
-    <h1>⚡ Inazuma Eleven Fan Site ⚡</h1>
+    <h1>Inazuma Eleven Fan Site</h1>
     <button onclick="toggleDarkMode()">🌙 Mode sombre</button>
   </header>
 
@@ -183,7 +234,6 @@
       Inazuma Eleven est un anime mêlant football et techniques spéciales.
       Suivez Mark Evans et l’équipe Raimon vers la victoire !
     </p>
-    <button onclick="alert('🔥 Allez Raimon ⚽')">Encourager l’équipe</button>
   </section>
 
   <section id="galerie" class="fade-in">
@@ -200,7 +250,7 @@
 
     <div class="personnage">
       <h3>⚽ Mark Evans</h3>
-      <p>Gardien et capitaine. Courageux et déterminé. Technique : Main Céleste.</p>
+      <p>Gardien et capitaine. Technique : Main Céleste.</p>
     </div>
 
     <div class="personnage">
@@ -212,7 +262,6 @@
       <h3>🧠 Jude Sharp</h3>
       <p>Stratège de l’équipe Raimon.</p>
     </div>
-
   </section>
 
   <footer>
@@ -220,19 +269,32 @@
   </footer>
 
   <script>
+    // MODE SOMBRE
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
     }
 
+    // APPARITION AU SCROLL
     const elements = document.querySelectorAll(".fade-in");
 
     window.addEventListener("scroll", () => {
       elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        if (position < window.innerHeight - 100) {
+        const pos = el.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
           el.classList.add("visible");
         }
       });
+    });
+
+    // BLOQUER SCROLL PENDANT OPENING
+    document.body.style.overflow = "hidden";
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.style.overflow = "auto";
+        const opening = document.getElementById("opening");
+        if (opening) opening.remove();
+      }, 3000);
     });
   </script>
 
