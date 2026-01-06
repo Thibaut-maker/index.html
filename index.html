@@ -102,7 +102,7 @@
       100% { transform: scale(1); }
     }
 
-    /* ===== BOUTON MODE HEADER ===== */
+    /* ===== BOUTON MODE (HEADER) ===== */
     .mode-header-btn {
       position: absolute;
       top: 20px;
@@ -115,13 +115,13 @@
       font-size: 15px;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 15px rgba(59,130,246,0.6);
+      box-shadow: 0 0 12px rgba(59,130,246,0.5);
       z-index: 10;
     }
 
     .mode-header-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(147,197,253,0.9);
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(147,197,253,0.7);
     }
 
     body.dark-mode .mode-header-btn {
@@ -211,25 +211,19 @@
 
     body.dark-mode footer { background-color: #001033; }
 
-    /* ===== TRANSITION THEME ===== */
+    /* ===== TRANSITION DOUCE THEME ===== */
     #theme-transition {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, #3b82f6, #020617);
+      background: rgba(0, 0, 0, 0.15);
       opacity: 0;
       pointer-events: none;
       z-index: 9998;
-      transform: scale(0);
+      transition: opacity 0.4s ease;
     }
 
     #theme-transition.active {
-      animation: themeWave 0.9s ease-out forwards;
-    }
-
-    @keyframes themeWave {
-      0% { transform: scale(0); opacity: 0.8; }
-      60% { opacity: 1; }
-      100% { transform: scale(3); opacity: 0; }
+      opacity: 1;
     }
   </style>
 </head>
@@ -244,7 +238,6 @@
 
   <header>
     <button id="modeBtn" class="mode-header-btn"></button>
-
     <img src="73916e11-f31e-43a1-8354-6119557522c8.png" alt="Logo Inazuma Eleven">
     <h1>Inazuma Eleven Fan Site</h1>
   </header>
@@ -280,6 +273,7 @@
     <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
   </footer>
 
+  <!-- VOILE DOUX -->
   <div id="theme-transition"></div>
 
   <script>
@@ -299,11 +293,11 @@
       setTimeout(() => {
         document.body.classList.toggle('dark-mode');
         updateModeButton();
-      }, 250);
+      }, 150);
 
       setTimeout(() => {
         transition.classList.remove('active');
-      }, 900);
+      }, 450);
     });
 
     function updateModeButton() {
