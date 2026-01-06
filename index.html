@@ -115,15 +115,25 @@
       gap: 20px;
     }
 
+    /* Personnages cliquables */
     .personnage {
+      display: block;
       background: white;
       padding: 20px;
       border-radius: 12px;
       text-align: center;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
 
     body.dark-mode .personnage {
       background: #1a1a40;
+    }
+
+    .personnage:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     footer {
@@ -210,7 +220,8 @@
 
   <section id="personnages">
     <h2>👥 Personnages</h2>
-    <div class="personnage">⚽ Mark Evans</div>
+    <!-- Mark Evans cliquable -->
+    <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
     <div class="personnage">🔥 Axel Blaze</div>
     <div class="personnage">🧠 Jude Sharp</div>
   </section>
