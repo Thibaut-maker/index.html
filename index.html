@@ -59,14 +59,9 @@
       transition: all 0.4s ease;
     }
 
-    .mode-header-btn:hover {
-      transform: scale(1.1);
-    }
+    .mode-header-btn:hover { transform: scale(1.1); }
 
-    header img {
-      max-width: 280px;
-      margin-bottom: 10px;
-    }
+    header img { max-width: 280px; margin-bottom: 10px; }
 
     nav {
       background-color: #0033cc;
@@ -87,11 +82,7 @@
       font-weight: bold;
     }
 
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+    section { max-width: 1000px; margin: auto; padding: 40px 20px; }
 
     h2 { color: #002080; }
     body.dark-mode h2 { color: #93c5fd; }
@@ -115,7 +106,6 @@
       gap: 20px;
     }
 
-    /* Personnages cliquables */
     .personnage {
       display: block;
       background: white;
@@ -127,9 +117,7 @@
       cursor: pointer;
     }
 
-    body.dark-mode .personnage {
-      background: #1a1a40;
-    }
+    body.dark-mode .personnage { background: #1a1a40; }
 
     .personnage:hover {
       transform: translateY(-5px) scale(1.03);
@@ -145,7 +133,6 @@
 
     body.dark-mode footer { background-color: #001033; }
 
-    /* ===== BOUTON RETOUR EN HAUT ===== */
     #scrollTopBtn {
       position: fixed;
       bottom: 25px;
@@ -165,16 +152,9 @@
       transition: all 0.4s ease;
     }
 
-    #scrollTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    #scrollTopBtn.show { opacity: 1; pointer-events: auto; }
+    #scrollTopBtn:hover { transform: scale(1.1); }
 
-    #scrollTopBtn:hover {
-      transform: scale(1.1);
-    }
-
-    /* ===== TRANSITION DOUCE THEME ===== */
     #theme-transition {
       position: fixed;
       inset: 0;
@@ -184,9 +164,7 @@
       z-index: 999;
     }
 
-    #theme-transition.active {
-      opacity: 1;
-    }
+    #theme-transition.active { opacity: 1; }
   </style>
 </head>
 
@@ -220,20 +198,16 @@
 
   <section id="personnages">
     <h2>👥 Personnages</h2>
-    <!-- Mark Evans cliquable -->
     <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
-    <div class="personnage">🔥 Axel Blaze</div>
-    <div class="personnage">🧠 Jude Sharp</div>
+    <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
+    <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
   </section>
 
   <footer>
     <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
   </footer>
 
-  <!-- BOUTON RETOUR HAUT -->
   <button id="scrollTopBtn">⬆</button>
-
-  <!-- VOILE THEME -->
   <div id="theme-transition"></div>
 
   <script>
@@ -257,11 +231,8 @@
     });
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
+      if (window.scrollY > 300) scrollBtn.classList.add("show");
+      else scrollBtn.classList.remove("show");
     });
 
     scrollBtn.addEventListener("click", () => {
