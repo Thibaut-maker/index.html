@@ -56,6 +56,11 @@
       font-size: 14px;
       cursor: pointer;
       box-shadow: 0 0 12px rgba(59,130,246,0.5);
+      transition: all 0.4s ease;
+    }
+
+    .mode-header-btn:hover {
+      transform: scale(1.1);
     }
 
     header img {
@@ -135,18 +140,19 @@
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: white;
-      border: none;
-      border-radius: 50%;
       width: 50px;
       height: 50px;
       font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
       opacity: 0;
       pointer-events: none;
       z-index: 1000;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      border: 2px solid #93c5fd;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(59,130,246,0.5);
+      cursor: pointer;
+      transition: all 0.4s ease;
     }
 
     #scrollTopBtn.show {
@@ -196,9 +202,9 @@
   <section id="galerie">
     <h2>Galerie</h2>
     <div class="gallery">
-      <img src="ecole-raimon.png">
-      <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png">
-      <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png">
+      <img src="ecole-raimon.png" alt="École Raimon">
+      <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
+      <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
     </div>
   </section>
 
@@ -232,15 +238,11 @@
 
     modeBtn.addEventListener("click", () => {
       transition.classList.add("active");
-
       setTimeout(() => {
         document.body.classList.toggle("dark-mode");
         updateModeButton();
-      }, 150);
-
-      setTimeout(() => {
         transition.classList.remove("active");
-      }, 450);
+      }, 150);
     });
 
     window.addEventListener("scroll", () => {
