@@ -6,12 +6,15 @@
   <title>Inazuma Eleven Fan Site</title>
 
   <style>
+    * {
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #e6f0ff;
       color: #333;
-      transition: 0.3s;
     }
 
     header {
@@ -25,6 +28,16 @@
       max-width: 300px;
       display: block;
       margin: 0 auto 10px;
+    }
+
+    h1 {
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     nav {
@@ -68,13 +81,17 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      margin-top: 10px;
     }
 
     button:hover {
-      background-color: #3366ff;
+      transform: scale(1.08);
     }
 
+    button:active {
+      transform: scale(0.95);
+    }
+
+    /* GALERIE */
     .gallery {
       display: flex;
       gap: 15px;
@@ -86,19 +103,23 @@
       width: 220px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: 0.3s;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
+    /* PERSONNAGES */
     .personnage {
       background-color: white;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .personnage:hover {
+      transform: translateY(-8px);
     }
 
     footer {
@@ -109,6 +130,17 @@
       margin-top: 40px;
     }
 
+    /* APPARITION AU SCROLL */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* MODE SOMBRE */
     body.dark {
       background-color: #0f172a;
@@ -116,21 +148,13 @@
     }
 
     body.dark header,
-    body.dark footer,
-    body.dark nav {
+    body.dark nav,
+    body.dark footer {
       background-color: #020617;
     }
 
     body.dark h2 {
       color: #60a5fa;
-    }
-
-    body.dark button {
-      background-color: #1d4ed8;
-    }
-
-    body.dark .gallery img {
-      box-shadow: 0 4px 10px rgba(255,255,255,0.15);
     }
 
     body.dark .personnage {
@@ -141,92 +165,75 @@
 
 <body>
 
-  <!-- HEADER -->
   <header>
     <img src="73916e11-f31e-43a1-8354-6119557522c8.png" alt="Logo Inazuma Eleven">
-    <h1>🌟 Inazuma Eleven Fan Site 🌟</h1>
+    <h1>⚡ Inazuma Eleven Fan Site ⚡</h1>
     <button onclick="toggleDarkMode()">🌙 Mode sombre</button>
   </header>
 
-  <!-- MENU -->
   <nav>
     <a href="#presentation">Présentation</a>
     <a href="#galerie">Galerie</a>
     <a href="#personnages">Personnages</a>
   </nav>
 
-  <!-- PRESENTATION -->
-  <section id="presentation">
+  <section id="presentation" class="fade-in">
     <h2>Présentation</h2>
     <p>
-      <strong>Inazuma Eleven</strong> est un anime culte mêlant football et techniques spéciales.
-      Suivez Mark Evans et l’équipe de Raimon dans leur quête vers la victoire.
+      Inazuma Eleven est un anime mêlant football et techniques spéciales.
+      Suivez Mark Evans et l’équipe Raimon vers la victoire !
     </p>
-    <button onclick="alert('🔥 Allez Raimon ⚽ !')">Encourager l’équipe</button>
+    <button onclick="alert('🔥 Allez Raimon ⚽')">Encourager l’équipe</button>
   </section>
 
-  <!-- GALERIE -->
-  <section id="galerie">
-    <h2>Galerie d'images</h2>
+  <section id="galerie" class="fade-in">
+    <h2>Galerie</h2>
     <div class="gallery">
-
-      <a href="ecole-raimon.png" target="_blank">
-        <img src="ecole-raimon.png" alt="École Raimon">
-      </a>
-
-      <a href="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" target="_blank">
-        <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
-      </a>
-
-      <a href="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" target="_blank">
-        <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
-      </a>
-
+      <img src="ecole-raimon.png" alt="École Raimon">
+      <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png">
+      <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png">
     </div>
   </section>
 
-  <!-- PERSONNAGES -->
-  <section id="personnages">
-    <h2>👥 Description des personnages</h2>
+  <section id="personnages" class="fade-in">
+    <h2>👥 Personnages</h2>
 
     <div class="personnage">
-      <h3>⚽ Mark Evans (Mamoru Endou)</h3>
-      <p>
-        Gardien de but et capitaine de Raimon.
-        Il est courageux, déterminé et ne renonce jamais.
-        Sa technique spéciale la plus connue est <strong>La Main Céleste</strong>.
-      </p>
+      <h3>⚽ Mark Evans</h3>
+      <p>Gardien et capitaine. Courageux et déterminé. Technique : Main Céleste.</p>
     </div>
 
     <div class="personnage">
-      <h3>🔥 Axel Blaze (Shuuya Gouenji)</h3>
-      <p>
-        Attaquant légendaire au caractère calme et mystérieux.
-        Sa technique emblématique est <strong>La Frappe du Tigre</strong>.
-      </p>
+      <h3>🔥 Axel Blaze</h3>
+      <p>Attaquant légendaire. Technique : Frappe du Tigre.</p>
     </div>
 
     <div class="personnage">
-      <h3>🧠 Jude Sharp (Yuuto Kidou)</h3>
-      <p>
-        Stratège de l’équipe Raimon.
-        Très intelligent, il met en place des tactiques
-        pour mener son équipe à la victoire.
-      </p>
+      <h3>🧠 Jude Sharp</h3>
+      <p>Stratège de l’équipe Raimon.</p>
     </div>
 
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
   </footer>
 
-  <!-- SCRIPT MODE SOMBRE -->
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
     }
+
+    const elements = document.querySelectorAll(".fade-in");
+
+    window.addEventListener("scroll", () => {
+      elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    });
   </script>
 
 </body>
