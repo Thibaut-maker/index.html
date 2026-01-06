@@ -225,10 +225,27 @@
     body.dark .personnage {
       background-color: #020617;
     }
+
+    /* ===== ÉCLAIRS AU SCROLL AVANCÉS ===== */
+    .lightning-flash {
+      position: fixed;
+      width: 200px;
+      height: 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10000;
+      transform: rotate(-15deg);
+      box-shadow: 0 0 20px 5px #fff;
+      transition: opacity 0.15s ease;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- ÉCLAIRS -->
+  <div id="lightning-container"></div>
 
   <!-- TRANSITION MODE -->
   <div id="theme-transition"></div>
@@ -336,6 +353,36 @@
         document.getElementById("opening")?.remove();
       }, 3000);
     });
+
+    /* ===== ÉCLAIRS ALÉATOIRES AU SCROLL ===== */
+    const lightningContainer = document.getElementById("lightning-container");
+    let lastScroll = window.pageYOffset;
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+      if(currentScroll > lastScroll) { // on descend
+        createLightningFlash();
+      }
+      lastScroll = currentScroll;
+    });
+
+    function createLightningFlash() {
+      const flash = document.createElement("div");
+      flash.className = "lightning-flash";
+      // Position aléatoire
+      flash.style.top = Math.random() * window.innerHeight + "px";
+      flash.style.left = Math.random() * window.innerWidth + "px";
+      flash.style.width = 100 + Math.random() * 150 + "px";
+      flash.style.transform = `rotate(${Math.random()*30-15}deg)`;
+      lightningContainer.appendChild(flash);
+
+      // Animation rapide
+      flash.style.opacity = 1;
+      setTimeout(() => {
+        flash.style.opacity = 0;
+        setTimeout(() => flash.remove(), 200);
+      }, 100);
+    }
   </script>
 
 </body>
