@@ -23,7 +23,7 @@
       overflow-x: hidden;
     }
 
-    /* OPENING */
+    /* ===== OPENING ===== */
     #opening {
       position: fixed;
       inset: 0;
@@ -68,7 +68,28 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
-    /* HEADER */
+    /* ===== TRANSITION MODE CLAIR / SOMBRE ===== */
+    #theme-transition {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(96,165,250,0.35), transparent 70%);
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0.8);
+      z-index: 9998;
+    }
+
+    #theme-transition.active {
+      animation: themeWave 0.8s ease-in-out forwards;
+    }
+
+    @keyframes themeWave {
+      0% { opacity: 0; transform: scale(0.6); }
+      40% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.4); }
+    }
+
+    /* ===== HEADER ===== */
     header {
       background-color: #001f66;
       text-align: center;
@@ -209,6 +230,9 @@
 
 <body>
 
+  <!-- TRANSITION MODE -->
+  <div id="theme-transition"></div>
+
   <!-- OPENING -->
   <div id="opening">
     <h1>⚡ INAZUMA ELEVEN ⚡</h1>
@@ -269,14 +293,22 @@
   </footer>
 
   <script>
-    // MODE SOMBRE
+    /* MODE CLAIR / SOMBRE AVEC ANIMATION */
     function toggleDarkMode() {
-      document.body.classList.toggle("dark");
+      const overlay = document.getElementById("theme-transition");
+      overlay.classList.add("active");
+
+      setTimeout(() => {
+        document.body.classList.toggle("dark");
+      }, 200);
+
+      setTimeout(() => {
+        overlay.classList.remove("active");
+      }, 800);
     }
 
-    // APPARITION AU SCROLL
+    /* APPARITION AU SCROLL */
     const elements = document.querySelectorAll(".fade-in");
-
     window.addEventListener("scroll", () => {
       elements.forEach(el => {
         const pos = el.getBoundingClientRect().top;
@@ -286,9 +318,8 @@
       });
     });
 
-    // BLOQUER SCROLL PENDANT OPENING
+    /* OPENING */
     document.body.style.overflow = "hidden";
-
     window.addEventListener("load", () => {
       setTimeout(() => {
         document.body.style.overflow = "auto";
