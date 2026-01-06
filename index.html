@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inazuma Eleven Fan Site</title>
 
+  <!-- ICÔNE DU SITE -->
+  <link rel="icon" type="image/jpeg" href="téléchargement.jfif">
+  <link rel="apple-touch-icon" href="téléchargement.jfif">
+
   <style>
     /* TRANSITIONS GLOBALES */
     * {
@@ -225,27 +229,10 @@
     body.dark .personnage {
       background-color: #020617;
     }
-
-    /* ===== ÉCLAIRS AU SCROLL AVANCÉS ===== */
-    .lightning-flash {
-      position: fixed;
-      width: 200px;
-      height: 10px;
-      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 10000;
-      transform: rotate(-15deg);
-      box-shadow: 0 0 20px 5px #fff;
-      transition: opacity 0.15s ease;
-    }
   </style>
 </head>
 
 <body>
-
-  <!-- ÉCLAIRS -->
-  <div id="lightning-container"></div>
 
   <!-- TRANSITION MODE -->
   <div id="theme-transition"></div>
@@ -276,9 +263,9 @@
   <section id="galerie" class="fade-in">
     <h2>Galerie</h2>
     <div class="gallery">
-      <img src="ecole-raimon.png">
-      <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png">
-      <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png">
+      <img src="ecole-raimon.png" alt="École Raimon">
+      <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
+      <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
     </div>
   </section>
 
@@ -319,7 +306,7 @@
       });
     });
 
-    /* SCROLL ANIMÉ STYLE ANIME */
+    /* SCROLL ANIMÉ */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
@@ -353,36 +340,6 @@
         document.getElementById("opening")?.remove();
       }, 3000);
     });
-
-    /* ===== ÉCLAIRS ALÉATOIRES AU SCROLL ===== */
-    const lightningContainer = document.getElementById("lightning-container");
-    let lastScroll = window.pageYOffset;
-
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
-      if(currentScroll > lastScroll) { // on descend
-        createLightningFlash();
-      }
-      lastScroll = currentScroll;
-    });
-
-    function createLightningFlash() {
-      const flash = document.createElement("div");
-      flash.className = "lightning-flash";
-      // Position aléatoire
-      flash.style.top = Math.random() * window.innerHeight + "px";
-      flash.style.left = Math.random() * window.innerWidth + "px";
-      flash.style.width = 100 + Math.random() * 150 + "px";
-      flash.style.transform = `rotate(${Math.random()*30-15}deg)`;
-      lightningContainer.appendChild(flash);
-
-      // Animation rapide
-      flash.style.opacity = 1;
-      setTimeout(() => {
-        flash.style.opacity = 0;
-        setTimeout(() => flash.remove(), 200);
-      }, 100);
-    }
   </script>
 
 </body>
