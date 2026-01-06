@@ -11,7 +11,6 @@
   <meta name="theme-color" content="#1e40af">
 
   <style>
-    /* TRANSITIONS GLOBALES */
     * {
       transition:
         background-color 0.6s ease,
@@ -21,9 +20,7 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -73,27 +70,23 @@
       100% { text-shadow: 0 0 10px #3b82f6; }
     }
 
-    @keyframes subtitleAppear {
-      to { opacity: 1; }
-    }
+    @keyframes subtitleAppear { to { opacity: 1; } }
 
     @keyframes openingFadeOut {
-      0% { opacity: 1; }
-      70% { opacity: 1; }
+      0%, 70% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
     }
 
-    /* HEADER */
+    /* ===== HEADER ===== */
     header {
+      position: relative;
       background-color: #001f66;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px 20px;
       color: white;
     }
 
-    body.dark-mode header {
-      background-color: #001033;
-    }
+    body.dark-mode header { background-color: #001033; }
 
     header img {
       max-width: 300px;
@@ -101,9 +94,7 @@
       margin: 0 auto 10px;
     }
 
-    h1 {
-      animation: pulse 2.5s infinite;
-    }
+    h1 { animation: pulse 2.5s infinite; }
 
     @keyframes pulse {
       0% { transform: scale(1); }
@@ -111,7 +102,34 @@
       100% { transform: scale(1); }
     }
 
-    /* NAVIGATION */
+    /* ===== BOUTON MODE HEADER ===== */
+    .mode-header-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      border: 2px solid #93c5fd;
+      border-radius: 30px;
+      padding: 10px 18px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(59,130,246,0.6);
+      z-index: 10;
+    }
+
+    .mode-header-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(147,197,253,0.9);
+    }
+
+    body.dark-mode .mode-header-btn {
+      background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+      border-color: #60a5fa;
+    }
+
+    /* ===== NAV ===== */
     nav {
       background-color: #0033cc;
       padding: 10px;
@@ -123,9 +141,7 @@
       z-index: 100;
     }
 
-    body.dark-mode nav {
-      background-color: #002080;
-    }
+    body.dark-mode nav { background-color: #002080; }
 
     nav a {
       color: white;
@@ -144,20 +160,12 @@
       padding: 30px;
     }
 
-    h2 {
-      color: #002080;
-    }
+    h2 { color: #002080; }
+    body.dark-mode h2 { color: #93c5fd; }
 
-    body.dark-mode h2 {
-      color: #93c5fd;
-    }
+    p { font-size: 18px; line-height: 1.6; }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    /* GALERIE */
+    /* ===== GALERIE ===== */
     .gallery {
       display: flex;
       gap: 15px;
@@ -176,7 +184,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
-    /* PERSONNAGES */
+    /* ===== PERSONNAGES ===== */
     #personnages {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -189,17 +197,9 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.6s ease;
     }
 
-    body.dark-mode .personnage {
-      background-color: #1a1a40;
-    }
-
-    .personnage:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
+    body.dark-mode .personnage { background-color: #1a1a40; }
 
     footer {
       background-color: #001f66;
@@ -209,57 +209,27 @@
       margin-top: 40px;
     }
 
-    body.dark-mode footer {
-      background-color: #001033;
-    }
+    body.dark-mode footer { background-color: #001033; }
 
-    /* BOUTON RETOUR EN HAUT */
-    #scrollTopBtn {
+    /* ===== TRANSITION THEME ===== */
+    #theme-transition {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #0033cc;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 12px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      inset: 0;
+      background: radial-gradient(circle at center, #3b82f6, #020617);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s ease;
-      z-index: 1000;
+      z-index: 9998;
+      transform: scale(0);
     }
 
-    #scrollTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
+    #theme-transition.active {
+      animation: themeWave 0.9s ease-out forwards;
     }
 
-    #scrollTopBtn:hover {
-      background-color: #0055ff;
-    }
-
-    /* BOUTON MODE SOMBRE / CLAIR */
-    #modeBtn {
-      position: fixed;
-      bottom: 80px;
-      right: 30px;
-      background-color: #0033cc;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 12px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-
-    #modeBtn:hover {
-      background-color: #0055ff;
+    @keyframes themeWave {
+      0% { transform: scale(0); opacity: 0.8; }
+      60% { opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
     }
   </style>
 </head>
@@ -273,6 +243,8 @@
   </div>
 
   <header>
+    <button id="modeBtn" class="mode-header-btn"></button>
+
     <img src="73916e11-f31e-43a1-8354-6119557522c8.png" alt="Logo Inazuma Eleven">
     <h1>Inazuma Eleven Fan Site</h1>
   </header>
@@ -308,12 +280,9 @@
     <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
   </footer>
 
-  <!-- BOUTONS -->
-  <button id="scrollTopBtn">⬆️ Haut</button>
-  <button id="modeBtn">🌙 Mode sombre</button>
+  <div id="theme-transition"></div>
 
   <script>
-    // Supprime complètement l'opening après l'animation
     window.addEventListener('load', () => {
       setTimeout(() => {
         const opening = document.getElementById('opening');
@@ -321,37 +290,30 @@
       }, 3000);
     });
 
-    // BOUTON RETOUR EN HAUT avec fade
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop > 200) {
-        scrollBtn.classList.add('show');
-      } else {
-        scrollBtn.classList.remove('show');
-      }
-    });
-
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // BOUTON MODE SOMBRE / CLAIR
     const modeBtn = document.getElementById('modeBtn');
+    const transition = document.getElementById('theme-transition');
 
     modeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      updateModeButton();
+      transition.classList.add('active');
+
+      setTimeout(() => {
+        document.body.classList.toggle('dark-mode');
+        updateModeButton();
+      }, 250);
+
+      setTimeout(() => {
+        transition.classList.remove('active');
+      }, 900);
     });
 
     function updateModeButton() {
-      if (document.body.classList.contains('dark-mode')) {
-        modeBtn.textContent = "🌞 Mode clair";
-      } else {
-        modeBtn.textContent = "🌙 Mode sombre";
-      }
+      modeBtn.textContent = document.body.classList.contains('dark-mode')
+        ? "🌞 Mode clair"
+        : "🌙 Mode sombre";
     }
 
-    updateModeButton(); // initialise le texte
+    updateModeButton();
   </script>
+
 </body>
 </html>
