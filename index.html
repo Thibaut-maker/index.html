@@ -56,15 +56,9 @@
       font-size: 14px;
       cursor: pointer;
       box-shadow: 0 0 12px rgba(59,130,246,0.5);
-      transition: all 0.4s ease;
     }
 
     .mode-header-btn:hover { transform: scale(1.1); }
-
-    header img {
-      max-width: 280px;
-      margin-bottom: 10px;
-    }
 
     nav {
       background-color: #0033cc;
@@ -123,7 +117,6 @@
       text-align: center;
       text-decoration: none;
       color: inherit;
-      cursor: pointer;
     }
 
     body.dark-mode .personnage {
@@ -145,7 +138,7 @@
 
     body.dark-mode footer { background-color: #001033; }
 
-    /* ===== BOUTON SCROLL TOP ===== */
+    /* ===== BOUTON SCROLL ===== */
     #scrollTopBtn {
       position: fixed;
       bottom: 25px;
@@ -155,14 +148,11 @@
       font-size: 22px;
       opacity: 0;
       pointer-events: none;
-      z-index: 1000;
       background: linear-gradient(135deg, #2563eb, #1e40af);
       color: white;
       border: 2px solid #93c5fd;
       border-radius: 50%;
-      box-shadow: 0 0 12px rgba(59,130,246,0.5);
       cursor: pointer;
-      transition: all 0.4s ease;
     }
 
     #scrollTopBtn.show {
@@ -170,11 +160,6 @@
       pointer-events: auto;
     }
 
-    #scrollTopBtn:hover {
-      transform: scale(1.1);
-    }
-
-    /* ===== TRANSITION THEME ===== */
     #theme-transition {
       position: fixed;
       inset: 0;
@@ -192,7 +177,6 @@
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
-  <img src="raimon.webp" alt="Logo Inazuma Eleven">
   <h1>Inazuma Eleven Fan Site</h1>
 </header>
 
@@ -210,16 +194,14 @@
 <section id="galerie">
   <h2>Galerie</h2>
   <div class="gallery">
-    <img src="raimon-school.webp" alt="Collège Raimon">
+    <img src="raimon.webp" alt="Collège Raimon">
     <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
     <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
   </div>
 </section>
 
-<!-- ✅ SECTION PERSONNAGES CORRIGÉE -->
 <section>
   <h2>👥 Personnages</h2>
-
   <div id="personnages">
     <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
     <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
@@ -255,8 +237,7 @@
   });
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) scrollBtn.classList.add("show");
-    else scrollBtn.classList.remove("show");
+    scrollBtn.classList.toggle("show", window.scrollY > 300);
   });
 
   scrollBtn.addEventListener("click", () => {
