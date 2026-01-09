@@ -33,6 +33,7 @@
       color: #f0f0f0;
     }
 
+    /* ===== HEADER ===== */
     header {
       position: relative;
       background-color: #001f66;
@@ -60,7 +61,10 @@
 
     .mode-header-btn:hover { transform: scale(1.1); }
 
-    header img { max-width: 280px; margin-bottom: 10px; }
+    header img {
+      max-width: 280px;
+      margin-bottom: 10px;
+    }
 
     nav {
       background-color: #0033cc;
@@ -81,11 +85,16 @@
       font-weight: bold;
     }
 
-    section { max-width: 1000px; margin: auto; padding: 40px 20px; }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
     h2 { color: #002080; }
     body.dark-mode h2 { color: #93c5fd; }
 
+    /* ===== GALERIE ===== */
     .gallery {
       display: flex;
       gap: 15px;
@@ -99,6 +108,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
+    /* ===== PERSONNAGES ===== */
     #personnages {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -116,13 +126,16 @@
       cursor: pointer;
     }
 
-    body.dark-mode .personnage { background: #1a1a40; }
+    body.dark-mode .personnage {
+      background: #1a1a40;
+    }
 
     .personnage:hover {
       transform: translateY(-5px) scale(1.03);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
+    /* ===== FOOTER ===== */
     footer {
       background-color: #001f66;
       color: white;
@@ -132,6 +145,7 @@
 
     body.dark-mode footer { background-color: #001033; }
 
+    /* ===== BOUTON SCROLL TOP ===== */
     #scrollTopBtn {
       position: fixed;
       bottom: 25px;
@@ -151,9 +165,16 @@
       transition: all 0.4s ease;
     }
 
-    #scrollTopBtn.show { opacity: 1; pointer-events: auto; }
-    #scrollTopBtn:hover { transform: scale(1.1); }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
+    #scrollTopBtn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== TRANSITION THEME ===== */
     #theme-transition {
       position: fixed;
       inset: 0;
@@ -189,18 +210,21 @@
 <section id="galerie">
   <h2>Galerie</h2>
   <div class="gallery">
-    <!-- ✅ IMAGE DU COLLÈGE RAIMON AJOUTÉE -->
     <img src="raimon-school.webp" alt="Collège Raimon">
     <img src="https://static.wikia.nocookie.net/inazuma/images/b/b6/Mark_Endou.png" alt="Mark Evans">
     <img src="https://static.wikia.nocookie.net/inazuma/images/5/55/AxelBlaze.png" alt="Axel Blaze">
   </div>
 </section>
 
-<section id="personnages">
+<!-- ✅ SECTION PERSONNAGES CORRIGÉE -->
+<section>
   <h2>👥 Personnages</h2>
-  <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
-  <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
-  <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
+
+  <div id="personnages">
+    <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
+    <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
+    <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
+  </div>
 </section>
 
 <footer>
