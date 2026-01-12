@@ -60,6 +60,28 @@
 
     .mode-header-btn:hover { transform: scale(1.1); }
 
+    /* 🔗 INAZUMA TV HEADER */
+    .inazuma-tv-header {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(239,68,68,0.6);
+    }
+
+    .inazuma-tv-header:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(239,68,68,0.9);
+    }
+
     /* ===== NAV ===== */
     nav {
       background-color: #0033cc;
@@ -126,35 +148,6 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
-    /* ===== INAZUMA TV ===== */
-    .inazuma-tv {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .tv-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-      color: white;
-      padding: 14px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      box-shadow: 0 0 15px rgba(239,68,68,0.6);
-    }
-
-    .tv-btn span {
-      font-size: 22px;
-    }
-
-    .tv-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(239,68,68,0.9);
-    }
-
     /* ===== FOOTER ===== */
     footer {
       background-color: #001f66;
@@ -193,6 +186,12 @@
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
+
+  <!-- ✅ INAZUMA TV EN HAUT À DROITE -->
+  <a href="https://inazumatv.fr/" target="_blank" class="inazuma-tv-header">
+    📺 Inazuma TV
+  </a>
+
   <h1>Inazuma Eleven Fan Site</h1>
 </header>
 
@@ -221,14 +220,6 @@
     <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
     <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
   </div>
-</section>
-
-<!-- ✅ BOUTON INAZUMA TV -->
-<section class="inazuma-tv">
-  <h2>📺 Inazuma TV</h2>
-  <a href="https://inazumatv.fr/" target="_blank" class="tv-btn">
-    <span>▶</span> Accéder à InazumaTV
-  </a>
 </section>
 
 <footer>
