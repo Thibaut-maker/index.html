@@ -2,16 +2,51 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mark Evans</title>
   <link rel="icon" href="icon.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      color: #333;
+      padding: 40px;
+    }
+
+    body.dark-mode {
+      background-color: #0c0c2b;
+      color: #f0f0f0;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    body.dark-mode a {
+      color: #93c5fd;
+    }
+  </style>
 </head>
+
 <body>
 
 <h1>⚽ Mark Evans</h1>
-<p>Gardien emblématique et capitaine de Raimon.</p>
+
+<p>
+  Mark Evans (円堂 守, Endō Mamoru) est le protagoniste de la série
+  <strong>Inazuma Eleven</strong>.  
+  Il est le gardien de but et le capitaine de l'équipe du collège Raimon,
+  puis de l'équipe Inazuma Japon.
+</p>
+
 <a href="index.html">← Retour à l'accueil</a>
 
 <script>
+  // 🔑 appliquer le thème sauvegardé
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
   }
