@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Axel Blaze</title>
+  <link rel="icon" href="icon.png">
 </head>
 <body>
 
 <h1>🔥 Axel Blaze</h1>
-<p>Attaquant légendaire connu pour ses tirs de feu.</p>
-
+<p>Attaquant légendaire connu pour la Tornade de Feu.</p>
 <a href="index.html">← Retour à l'accueil</a>
+
+<script>
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+</script>
 
 </body>
 </html>
