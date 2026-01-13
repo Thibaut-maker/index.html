@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       background: #e6f0ff;
       color: #1f2937;
+      transition: background 0.3s, color 0.3s; /* transition douce */
     }
 
     body.dark-mode {
@@ -22,6 +23,7 @@
       color: white;
       padding: 25px;
       text-align: center;
+      transition: background 0.3s;
     }
 
     body.dark-mode header {
@@ -40,6 +42,7 @@
       color: #2563eb;
       font-weight: bold;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     body.dark-mode a {
@@ -65,10 +68,12 @@
 </section>
 
 <script>
-  // ✅ LECTURE DU MODE SOMBRE
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-  }
+  // ✅ Appliquer le mode sombre dès le chargement
+  document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  });
 </script>
 
 </body>
