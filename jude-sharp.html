@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       background: #e6f0ff;
       color: #1f2937;
+      transition: background 0.3s, color 0.3s;
     }
 
     body.dark-mode {
@@ -22,6 +23,7 @@
       color: white;
       padding: 25px;
       text-align: center;
+      transition: background 0.3s;
     }
 
     body.dark-mode header {
@@ -40,6 +42,7 @@
       color: #2563eb;
       font-weight: bold;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     body.dark-mode a {
@@ -51,24 +54,25 @@
 <body>
 
 <header>
-  <h1>🧠 Jude Sharp</h1>
+  <h1>⚽ Jude Sharp</h1>
 </header>
 
 <section>
   <p>
-    Jude Sharp est le stratège de l’équipe Raimon.
-    Intelligent et calme, il analyse chaque match pour mener son équipe
-    vers la victoire.
+    Jude Sharp est un joueur talentueux d’Inazuma Eleven.
+    Milieu de terrain stratégique, il se distingue par sa vision du jeu et son intelligence tactique.
   </p>
 
   <a href="index.html">← Retour à l’accueil</a>
 </section>
 
 <script>
-  // ✅ LECTURE DU MODE SOMBRE
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-  }
+  // ✅ Appliquer le mode sombre dès le chargement
+  document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  });
 </script>
 
 </body>
