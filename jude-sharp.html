@@ -2,47 +2,28 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jude Sharp</title>
+  <link rel="icon" href="icon.png">
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #e6f0ff;
-      color: #1f2937;
-      transition: background 0.3s, color 0.3s;
+      background-color: #e6f0ff;
+      color: #333;
+      padding: 40px;
     }
 
     body.dark-mode {
-      background: #0b1024;
-      color: #f1f5f9;
-    }
-
-    header {
-      background: #1e40af;
-      color: white;
-      padding: 25px;
-      text-align: center;
-      transition: background 0.3s;
-    }
-
-    body.dark-mode header {
-      background: #020617;
-    }
-
-    section {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
+      background-color: #0c0c2b;
+      color: #f0f0f0;
     }
 
     a {
-      display: inline-block;
-      margin-top: 20px;
       color: #2563eb;
-      font-weight: bold;
       text-decoration: none;
-      transition: color 0.3s;
+      font-weight: bold;
     }
 
     body.dark-mode a {
@@ -53,26 +34,17 @@
 
 <body>
 
-<header>
-  <h1>⚽ Jude Sharp</h1>
-</header>
+<h1> ⚽ Jude Sharp </h1>
+<p>Jude Sharp est un joueur talentueux d’Inazuma Eleven.
+    Milieu de terrain stratégique, il se distingue par sa vision du jeu et son intelligence tactique.</p>
 
-<section>
-  <p>
-    Jude Sharp est un joueur talentueux d’Inazuma Eleven.
-    Milieu de terrain stratégique, il se distingue par sa vision du jeu et son intelligence tactique.
-  </p>
-
-  <a href="index.html">← Retour à l’accueil</a>
-</section>
+<a href="index.html">← Retour à l'accueil</a>
 
 <script>
-  // ✅ Appliquer le mode sombre dès le chargement
-  document.addEventListener("DOMContentLoaded", function() {
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-    }
-  });
+  // 🔑 appliquer le thème sauvegardé
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
 </script>
 
 </body>
