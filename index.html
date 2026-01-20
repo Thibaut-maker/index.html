@@ -83,20 +83,19 @@
       text-decoration: underline;
     }
 
-    /* ===== PRESENTATION + GALERIE ===== */
+    /* ===== GALERIE + PRESENTATION ===== */
     .presentation-galerie {
-      display: flex;
-      gap: 40px;
-      align-items: center;
       max-width: 1100px;
       margin: auto;
       padding: 70px 20px;
+      text-align: center;
     }
 
     .galerie img {
       width: 360px;
       border-radius: 18px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      margin-bottom: 40px;
     }
 
     .presentation {
@@ -158,11 +157,6 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .presentation-galerie {
-        flex-direction: column;
-        text-align: center;
-      }
-
       .galerie img {
         width: 100%;
         max-width: 420px;
