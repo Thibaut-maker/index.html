@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inazuma Eleven Fan Site</title>
 
-  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="icon" href="icon.png">
   <meta name="theme-color" content="#1e40af">
 
   <style>
     * {
       box-sizing: border-box;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -38,16 +36,14 @@
     }
 
     body.dark-mode header {
-      background: linear-gradient(135deg, #020617, #020617);
+      background: #020617;
     }
 
     h1 {
       margin: 0;
       font-size: 2.4rem;
-      letter-spacing: 1px;
     }
 
-    /* ===== BOUTONS HEADER ===== */
     .mode-header-btn {
       position: absolute;
       top: 20px;
@@ -55,26 +51,10 @@
       padding: 10px 18px;
       border-radius: 25px;
       border: none;
-      background: #ffffff;
+      background: white;
       color: #1e40af;
       font-weight: bold;
       cursor: pointer;
-    }
-
-    .inazumatv-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 10px 18px;
-      border-radius: 25px;
-      background: #facc15;
-      color: #1f2937;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .inazumatv-btn:hover {
-      transform: scale(1.1);
     }
 
     /* ===== NAV ===== */
@@ -103,16 +83,28 @@
       text-decoration: underline;
     }
 
-    /* ===== SECTIONS ===== */
-    section {
+    /* ===== PRESENTATION + GALERIE ===== */
+    .presentation-galerie {
+      display: flex;
+      gap: 40px;
+      align-items: center;
       max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 70px 20px;
+    }
+
+    .galerie img {
+      width: 360px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .presentation {
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
     h2 {
-      text-align: center;
-      margin-bottom: 30px;
       color: #1e40af;
     }
 
@@ -120,20 +112,11 @@
       color: #93c5fd;
     }
 
-    /* ===== GALERIE ===== */
-    .gallery {
-      display: flex;
-      justify-content: center;
-    }
-
-    .gallery img {
-      width: 320px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
-
     /* ===== PERSONNAGES ===== */
     #personnages {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
@@ -170,26 +153,17 @@
       background: #020617;
     }
 
-    /* ===== SCROLL TOP ===== */
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      background: #2563eb;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .presentation-galerie {
+        flex-direction: column;
+        text-align: center;
+      }
 
-    #scrollTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
+      .galerie img {
+        width: 100%;
+        max-width: 420px;
+      }
     }
   </style>
 </head>
@@ -198,52 +172,45 @@
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
-
-  <a href="https://inazumatv.fr/" target="_blank" class="inazumatv-btn">
-    📺 InazumaTV
-  </a>
-
   <h1>Inazuma Eleven Fan Site</h1>
 </header>
 
 <nav>
   <a href="#presentation">Présentation</a>
-  <a href="#galerie">Galerie</a>
   <a href="#personnages">Personnages</a>
 </nav>
 
-<section id="presentation">
-  <h2>Présentation</h2>
-  <p style="text-align:center;font-size:1.1rem;">
-    Inazuma Eleven est un anime mêlant football, stratégie et techniques spectaculaires.
-  </p>
-</section>
+<section id="presentation" class="presentation-galerie">
 
-<section id="galerie">
-  <h2>Galerie</h2>
-  <div class="gallery">
+  <div class="galerie">
+    <h2>Galerie</h2>
     <img src="raimon.webp" alt="Collège Raimon">
   </div>
+
+  <div class="presentation">
+    <h2>Présentation</h2>
+    <p>
+      Inazuma Eleven est un anime mêlant football, stratégie
+      et techniques spectaculaires. L’histoire suit l’équipe
+      du collège Raimon dans sa quête pour devenir la meilleure
+      équipe du Japon.
+    </p>
+  </div>
+
 </section>
 
 <section id="personnages">
-  <h2>👥 Personnages</h2>
-  <div id="personnages">
-    <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
-    <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
-    <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
-  </div>
+  <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
+  <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
+  <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
 </section>
 
 <footer>
   <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
 </footer>
 
-<button id="scrollTopBtn">⬆</button>
-
 <script>
   const modeBtn = document.getElementById("modeBtn");
-  const scrollBtn = document.getElementById("scrollTopBtn");
 
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
@@ -264,14 +231,6 @@
       document.body.classList.contains("dark-mode") ? "dark" : "light"
     );
     updateModeButton();
-  });
-
-  window.addEventListener("scroll", () => {
-    scrollBtn.classList.toggle("show", window.scrollY > 300);
-  });
-
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>
 
