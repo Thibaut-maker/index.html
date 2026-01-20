@@ -1,124 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axel Blaze</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axel Blaze</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      transition: 0.3s;
-    }
+<style>
+* { box-sizing: border-box; transition: 0.3s; }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #e6f0ff;
-      color: #1f2937;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e6f0ff;
+  color: #1f2937;
+}
 
-    body.dark-mode {
-      background: #0b1024;
-      color: #f1f5f9;
-    }
+body.dark-mode {
+  background: #0b1024;
+  color: #f1f5f9;
+}
 
-    header {
-      background: linear-gradient(135deg, #dc2626, #f97316);
-      padding: 35px 20px;
-      text-align: center;
-      position: relative;
-      color: white;
-    }
+header {
+  background: linear-gradient(135deg, #dc2626, #f97316);
+  padding: 35px 20px;
+  text-align: center;
+  position: relative;
+  color: white;
+}
 
-    body.dark-mode header {
-      background: #020617;
-    }
+body.dark-mode header { background: #020617; }
 
-    h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
+.mode-header-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .mode-header-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      padding: 10px 18px;
-      border-radius: 25px;
-      border: none;
-      background: #ffffff;
-      color: #dc2626;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  background: #facc15;
+  color: #1f2937;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-      text-align: center;
-    }
+body.dark-mode .back-btn {
+  background: #2563eb;
+  color: white;
+}
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      font-size: 1.1rem;
-    }
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    body.dark-mode .card {
-      background: #020617;
-    }
-  </style>
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .card {
+  background: #020617;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
+  <a href="index.html" class="back-btn">⬅ Accueil</a>
   <h1>🔥 Axel Blaze</h1>
 </header>
 
 <main>
   <div class="card">
     <p><strong>Poste :</strong> Attaquant</p>
-    <p><strong>Rôle :</strong> Buteur légendaire de Raimon</p>
-    <p><strong>Spécialité :</strong> Tirs surpuissants</p>
     <p><strong>Techniques :</strong> Frappe du Tigre, Tornade de Feu</p>
+    <p><strong>Rôle :</strong> Buteur légendaire</p>
   </div>
 </main>
 
-<!-- ✅ SCRIPT MODE SOMBRE (IDENTIQUE PARTOUT) -->
 <script>
-  const modeBtn = document.getElementById("modeBtn");
+const modeBtn = document.getElementById("modeBtn");
 
-  // Appliquer le thème au chargement
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-  }
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+}
 
-  function updateModeButton() {
-    if (!modeBtn) return;
-    modeBtn.textContent = document.body.classList.contains("dark-mode")
-      ? "🌞 Mode clair"
-      : "🌙 Mode sombre";
-  }
+function updateModeButton() {
+  modeBtn.textContent = document.body.classList.contains("dark-mode")
+    ? "🌞 Mode clair"
+    : "🌙 Mode sombre";
+}
 
+updateModeButton();
+
+modeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark-mode") ? "dark" : "light"
+  );
   updateModeButton();
-
-  // Changer le thème
-  if (modeBtn) {
-    modeBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark-mode") ? "dark" : "light"
-      );
-      updateModeButton();
-    });
-  }
+});
 </script>
 
 </body>
