@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inazuma Eleven Fan Site</title>
 
-  <link rel="icon" href="icon.png">
+  <link rel="icon" type="image/png" href="icon.png">
   <meta name="theme-color" content="#1e40af">
 
   <style>
     * {
       box-sizing: border-box;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     body {
@@ -57,6 +57,22 @@
       cursor: pointer;
     }
 
+    .inazumatv-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background: #facc15;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .inazumatv-btn:hover {
+      transform: scale(1.1);
+    }
+
     /* ===== NAV ===== */
     nav {
       background: #1e3a8a;
@@ -66,7 +82,6 @@
       padding: 12px;
       position: sticky;
       top: 0;
-      z-index: 100;
     }
 
     body.dark-mode nav {
@@ -79,28 +94,11 @@
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== GALERIE + PRESENTATION ===== */
-    .presentation-galerie {
+    /* ===== SECTIONS ===== */
+    section {
       max-width: 1100px;
       margin: auto;
-      padding: 70px 20px;
-      text-align: center;
-    }
-
-    .galerie img {
-      width: 360px;
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-      margin-bottom: 40px;
-    }
-
-    .presentation {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      padding: 60px 20px;
     }
 
     h2 {
@@ -111,26 +109,39 @@
       color: #93c5fd;
     }
 
-    /* ===== PERSONNAGES (TITRE À GAUCHE) ===== */
-    .personnages-section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
+    /* ===== GALERIE ===== */
+    .galerie {
+      text-align: center;
+    }
+
+    .galerie img {
+      width: 360px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    /* ===== PRESENTATION ===== */
+    .presentation {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== PERSONNAGES ===== */
+    .personnages-container {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 40px;
     }
 
-    .personnages-title {
-      min-width: 200px;
-    }
-
-    .personnages-title h2 {
-      margin: 0;
+    .personnages-titre {
       font-size: 2rem;
+      font-weight: bold;
+      white-space: nowrap;
     }
 
-    .personnages-grid {
+    .personnages-liste {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 25px;
@@ -139,8 +150,8 @@
 
     .personnage {
       background: white;
-      border-radius: 16px;
       padding: 25px;
+      border-radius: 16px;
       text-align: center;
       font-size: 1.2rem;
       text-decoration: none;
@@ -168,20 +179,33 @@
       background: #020617;
     }
 
+    /* ===== SCROLL TOP ===== */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background: #2563eb;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .galerie img {
-        width: 100%;
-        max-width: 420px;
-      }
-
-      .personnages-section {
+      .personnages-container {
         flex-direction: column;
         text-align: center;
-      }
-
-      .personnages-title {
-        margin-bottom: 20px;
       }
     }
   </style>
@@ -191,53 +215,52 @@
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
+  <a href="https://inazumatv.fr/" target="_blank" class="inazumatv-btn">📺 InazumaTV</a>
   <h1>Inazuma Eleven Fan Site</h1>
 </header>
 
 <nav>
+  <a href="#galerie">Galerie</a>
   <a href="#presentation">Présentation</a>
   <a href="#personnages">Personnages</a>
 </nav>
 
-<section id="presentation" class="presentation-galerie">
-
+<section id="galerie">
   <div class="galerie">
     <h2>Galerie</h2>
     <img src="raimon.webp" alt="Collège Raimon">
   </div>
 
-  <div class="presentation">
+  <div id="presentation" class="presentation">
     <h2>Présentation</h2>
     <p>
       Inazuma Eleven est un anime mêlant football, stratégie
-      et techniques spectaculaires. L’histoire suit l’équipe
-      du collège Raimon dans sa quête pour devenir la meilleure
-      équipe du Japon.
+      et techniques spectaculaires.
     </p>
   </div>
-
 </section>
 
-<section id="personnages" class="personnages-section">
+<section id="personnages">
+  <div class="personnages-container">
+    <div class="personnages-titre">👥 Personnages</div>
 
-  <div class="personnages-title">
-    <h2>👥 Personnages</h2>
+    <div class="personnages-liste">
+      <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
+      <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
+      <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
+    </div>
   </div>
-
-  <div class="personnages-grid">
-    <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
-    <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
-    <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
-  </div>
-
 </section>
 
 <footer>
   <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
 </footer>
 
+<button id="scrollTopBtn">⬆</button>
+
 <script>
   const modeBtn = document.getElementById("modeBtn");
+  const scrollBtn = document.getElementById("scrollTopBtn");
 
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
@@ -258,6 +281,14 @@
       document.body.classList.contains("dark-mode") ? "dark" : "light"
     );
     updateModeButton();
+  });
+
+  window.addEventListener("scroll", () => {
+    scrollBtn.classList.toggle("show", window.scrollY > 300);
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>
 
