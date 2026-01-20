@@ -163,6 +163,63 @@
       }
     }
   </style>
+  /* ===== PERSONNAGES HORIZONTAL ===== */
+.personnages-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 20px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.personnages-title {
+  min-width: 200px;
+}
+
+.personnages-title h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.personnages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  flex: 1;
+}
+
+.personnage {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .personnage {
+  background: #020617;
+}
+
+.personnage:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+/* 📱 Responsive téléphone */
+@media (max-width: 900px) {
+  .personnages-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .personnages-title {
+    margin-bottom: 20px;
+  }
+}
+
 </head>
 
 <body>
@@ -196,14 +253,18 @@
 
 </section>
 
-<section id="personnages">
-  <h2 style="text-align:center;">👥 Personnages</h2>
+<section id="personnages" class="personnages-section">
+
+  <div class="personnages-title">
+    <h2>👥 Personnages</h2>
+  </div>
 
   <div class="personnages-grid">
     <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
     <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
     <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
   </div>
+
 </section>
 
 <footer>
