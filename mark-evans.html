@@ -1,95 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mark Evans</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Evans</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #e6f0ff;
-      color: #1f2937;
-      transition: 0.3s;
-    }
+<style>
+* { box-sizing: border-box; transition: 0.3s; }
 
-    body.dark-mode {
-      background: #0b1024;
-      color: #f1f5f9;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e6f0ff;
+  color: #1f2937;
+}
 
-    header {
-      background: #1e40af;
-      padding: 30px;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
+body.dark-mode {
+  background: #0b1024;
+  color: #f1f5f9;
+}
 
-    body.dark-mode header {
-      background: #020617;
-    }
+header {
+  background: #1e40af;
+  padding: 35px 20px;
+  text-align: center;
+  position: relative;
+  color: white;
+}
 
-    .mode-header-btn {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
+body.dark-mode header { background: #020617; }
 
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-  </style>
+.mode-header-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  background: #facc15;
+  color: #1f2937;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body.dark-mode .back-btn {
+  background: #2563eb;
+  color: white;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .card {
+  background: #020617;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
+  <a href="index.html" class="back-btn">⬅ Accueil</a>
   <h1>⚽ Mark Evans</h1>
 </header>
 
 <main>
-  <p>Gardien légendaire de Raimon.</p>
-  <p>Technique : <strong>Main Céleste</strong></p>
+  <div class="card">
+    <p><strong>Poste :</strong> Gardien</p>
+    <p><strong>Technique :</strong> Main Céleste</p>
+    <p><strong>Rôle :</strong> Capitaine de Raimon</p>
+  </div>
 </main>
 
-<!-- ✅ SCRIPT MODE SOMBRE -->
 <script>
-  const modeBtn = document.getElementById("modeBtn");
+const modeBtn = document.getElementById("modeBtn");
 
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-  }
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+}
 
-  function updateModeButton() {
-    if (!modeBtn) return;
-    modeBtn.textContent = document.body.classList.contains("dark-mode")
-      ? "🌞 Mode clair"
-      : "🌙 Mode sombre";
-  }
+function updateModeButton() {
+  modeBtn.textContent = document.body.classList.contains("dark-mode")
+    ? "🌞 Mode clair"
+    : "🌙 Mode sombre";
+}
 
+updateModeButton();
+
+modeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark-mode") ? "dark" : "light"
+  );
   updateModeButton();
-
-  if (modeBtn) {
-    modeBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark-mode") ? "dark" : "light"
-      );
-      updateModeButton();
-    });
-  }
+});
 </script>
 
 </body>
