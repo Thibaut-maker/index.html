@@ -77,17 +77,16 @@
       font-weight: bold;
     }
 
-    /* ===== GALERIE + PRESENTATION (ALIGNÉ À GAUCHE) ===== */
+    /* ===== GALERIE + PRESENTATION (À GAUCHE) ===== */
     .galerie-presentation {
       display: flex;
-      justify-content: flex-start; /* ⬅️ vraiment à gauche */
+      justify-content: flex-start;
       padding: 80px 40px;
     }
 
     .galerie-presentation-inner {
       width: 700px;
       text-align: center;
-      margin-left: 0; /* collé à gauche */
     }
 
     .galerie img {
@@ -96,15 +95,19 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
 
-    .presentation {
+    /* ===== PRESENTATION INLINE ===== */
+    .presentation-inline {
       margin-top: 40px;
-    }
-
-    .presentation p {
-      max-width: 520px;
-      margin: 0 auto; /* 🎯 centré sous le titre */
       font-size: 1.1rem;
       line-height: 1.6;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .presentation-inline strong {
+      color: #93c5fd;
+      font-size: 1.2rem;
     }
 
     h2 {
@@ -198,12 +201,239 @@
       <img src="raimon.webp" alt="Collège Raimon">
     </div>
 
-    <div class="presentation" id="presentation">
-      <h2>Présentation</h2>
-      <p>
-        Inazuma Eleven est un anime mêlant football, stratégie
-        et techniques spectaculaires.
-      </p>
+    <div id="presentation" class="presentation-inline">
+      <strong>Présentation :</strong>
+      Inazuma Eleven est un anime mêlant football, stratégie
+      et techniques spectaculaires.
+    </div>
+
+  </div>
+</section>
+
+<section id="personnages">
+  <div class="personnages-container">
+    <div class="personnages-titre">👥 Personnages</div>
+    <div class="personnages-liste">
+      <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
+      <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
+      <a href="jude-sharp.html" class="personnage">🧠 Jude Sharp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inazuma Eleven Fan Site</title>
+
+  <link rel="icon" type="image/png" href="icon.png">
+  <meta name="theme-color" content="#1e40af">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #0b1024;
+      color: #f1f5f9;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #020617;
+      padding: 35px 20px;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+
+    .mode-header-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      border: none;
+      background: white;
+      color: #1e40af;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .inazumatv-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background: #facc15;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      background: #020617;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 12px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ===== GALERIE + PRESENTATION (À GAUCHE) ===== */
+    .galerie-presentation {
+      display: flex;
+      justify-content: flex-start;
+      padding: 80px 40px;
+    }
+
+    .galerie-presentation-inner {
+      width: 700px;
+      text-align: center;
+    }
+
+    .galerie img {
+      width: 360px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    /* ===== PRESENTATION INLINE ===== */
+    .presentation-inline {
+      margin-top: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .presentation-inline strong {
+      color: #93c5fd;
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      color: #93c5fd;
+    }
+
+    /* ===== PERSONNAGES ===== */
+    .personnages-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .personnages-titre {
+      font-size: 2rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .personnages-liste {
+      display: flex;
+      gap: 25px;
+    }
+
+    .personnage {
+      background: #020617;
+      padding: 20px 30px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .personnage:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .galerie-presentation {
+        justify-content: center;
+        padding: 60px 20px;
+      }
+
+      .galerie-presentation-inner {
+        width: 100%;
+      }
+
+      .personnages-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .personnages-liste {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <button id="modeBtn" class="mode-header-btn">🌞 Mode clair</button>
+  <a href="https://inazumatv.fr/" target="_blank" class="inazumatv-btn">📺 InazumaTV</a>
+  <h1>Inazuma Eleven Fan Site</h1>
+</header>
+
+<nav>
+  <a href="#galerie">Galerie</a>
+  <a href="#presentation">Présentation</a>
+  <a href="#personnages">Personnages</a>
+</nav>
+
+<section class="galerie-presentation" id="galerie">
+  <div class="galerie-presentation-inner">
+
+    <div class="galerie">
+      <h2>Galerie</h2>
+      <img src="raimon.webp" alt="Collège Raimon">
+    </div>
+
+    <div id="presentation" class="presentation-inline">
+      <strong>Présentation :</strong>
+      Inazuma Eleven est un anime mêlant football, stratégie
+      et techniques spectaculaires.
     </div>
 
   </div>
