@@ -17,8 +17,8 @@
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background: #e6f0ff;
-      color: #1f2937;
+      background: #0b1024;
+      color: #f1f5f9;
     }
 
     body.dark-mode {
@@ -28,15 +28,11 @@
 
     /* ===== HEADER ===== */
     header {
-      background: linear-gradient(135deg, #1e40af, #2563eb);
+      background: #020617;
       padding: 35px 20px;
       text-align: center;
       position: relative;
       color: white;
-    }
-
-    body.dark-mode header {
-      background: #020617;
     }
 
     h1 {
@@ -69,13 +65,9 @@
       font-weight: bold;
     }
 
-    .inazumatv-btn:hover {
-      transform: scale(1.1);
-    }
-
     /* ===== NAV ===== */
     nav {
-      background: #1e3a8a;
+      background: #020617;
       display: flex;
       justify-content: center;
       gap: 25px;
@@ -84,33 +76,23 @@
       top: 0;
     }
 
-    body.dark-mode nav {
-      background: #020617;
-    }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
 
-    /* ===== SECTIONS ===== */
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
+    /* ===== SECTION GALERIE + PRESENTATION ===== */
+    .galerie-presentation {
+      display: flex;
+      justify-content: center;
+      padding: 80px 20px;
     }
 
-    h2 {
-      color: #1e40af;
-    }
-
-    body.dark-mode h2 {
-      color: #93c5fd;
-    }
-
-    /* ===== GALERIE ===== */
-    .galerie {
+    .galerie-presentation-inner {
+      max-width: 700px;
+      width: 100%;
+      margin-left: 180px; /* ⬅️ décalage à droite */
       text-align: center;
     }
 
@@ -120,19 +102,29 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
 
-    /* ===== PRESENTATION ===== */
     .presentation {
       margin-top: 40px;
-      text-align: center;
+    }
+
+    .presentation p {
+      max-width: 520px;
+      margin: 0 auto; /* 🎯 centrage texte */
       font-size: 1.1rem;
       line-height: 1.6;
     }
 
+    h2 {
+      color: #93c5fd;
+    }
+
     /* ===== PERSONNAGES ===== */
     .personnages-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
       display: flex;
-      align-items: flex-start;
       gap: 40px;
+      align-items: center;
     }
 
     .personnages-titre {
@@ -142,79 +134,53 @@
     }
 
     .personnages-liste {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
       gap: 25px;
-      flex: 1;
     }
 
     .personnage {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      text-align: center;
-      font-size: 1.2rem;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    body.dark-mode .personnage {
       background: #020617;
+      padding: 20px 30px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
     .personnage:hover {
-      transform: translateY(-8px) scale(1.05);
+      transform: translateY(-5px) scale(1.05);
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: #1e40af;
-      color: white;
+      background: #020617;
       text-align: center;
       padding: 20px;
     }
 
-    body.dark-mode footer {
-      background: #020617;
-    }
-
-    /* ===== SCROLL TOP ===== */
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      background: #2563eb;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #scrollTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
+      .galerie-presentation-inner {
+        margin-left: 0;
+      }
+
       .personnages-container {
         flex-direction: column;
         text-align: center;
+      }
+
+      .personnages-liste {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 
-<body>
+<body class="dark-mode">
 
 <header>
-  <button id="modeBtn" class="mode-header-btn"></button>
+  <button id="modeBtn" class="mode-header-btn">🌞 Mode clair</button>
   <a href="https://inazumatv.fr/" target="_blank" class="inazumatv-btn">📺 InazumaTV</a>
   <h1>Inazuma Eleven Fan Site</h1>
 </header>
@@ -225,25 +191,28 @@
   <a href="#personnages">Personnages</a>
 </nav>
 
-<section id="galerie">
-  <div class="galerie">
-    <h2>Galerie</h2>
-    <img src="raimon.webp" alt="Collège Raimon">
-  </div>
+<section class="galerie-presentation" id="galerie">
+  <div class="galerie-presentation-inner">
 
-  <div id="presentation" class="presentation">
-    <h2>Présentation</h2>
-    <p>
-      Inazuma Eleven est un anime mêlant football, stratégie
-      et techniques spectaculaires.
-    </p>
+    <div class="galerie">
+      <h2>Galerie</h2>
+      <img src="raimon.webp" alt="Collège Raimon">
+    </div>
+
+    <div class="presentation" id="presentation">
+      <h2>Présentation</h2>
+      <p>
+        Inazuma Eleven est un anime mêlant football, stratégie
+        et techniques spectaculaires.
+      </p>
+    </div>
+
   </div>
 </section>
 
 <section id="personnages">
   <div class="personnages-container">
     <div class="personnages-titre">👥 Personnages</div>
-
     <div class="personnages-liste">
       <a href="mark-evans.html" class="personnage">⚽ Mark Evans</a>
       <a href="axel-blaze.html" class="personnage">🔥 Axel Blaze</a>
@@ -255,42 +224,6 @@
 <footer>
   <p>Site fan non officiel • Inazuma Eleven © Level-5</p>
 </footer>
-
-<button id="scrollTopBtn">⬆</button>
-
-<script>
-  const modeBtn = document.getElementById("modeBtn");
-  const scrollBtn = document.getElementById("scrollTopBtn");
-
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-  }
-
-  function updateModeButton() {
-    modeBtn.textContent = document.body.classList.contains("dark-mode")
-      ? "🌞 Mode clair"
-      : "🌙 Mode sombre";
-  }
-
-  updateModeButton();
-
-  modeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem(
-      "theme",
-      document.body.classList.contains("dark-mode") ? "dark" : "light"
-    );
-    updateModeButton();
-  });
-
-  window.addEventListener("scroll", () => {
-    scrollBtn.classList.toggle("show", window.scrollY > 300);
-  });
-
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
 
 </body>
 </html>
