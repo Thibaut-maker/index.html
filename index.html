@@ -21,11 +21,6 @@
       color: #f1f5f9;
     }
 
-    body.dark-mode {
-      background: #0b1024;
-      color: #f1f5f9;
-    }
-
     /* ===== HEADER ===== */
     header {
       background: #020617;
@@ -82,18 +77,17 @@
       font-weight: bold;
     }
 
-    /* ===== SECTION GALERIE + PRESENTATION ===== */
+    /* ===== GALERIE + PRESENTATION (ALIGNÉ À GAUCHE) ===== */
     .galerie-presentation {
       display: flex;
-      justify-content: center;
-      padding: 80px 20px;
+      justify-content: flex-start; /* ⬅️ vraiment à gauche */
+      padding: 80px 40px;
     }
 
     .galerie-presentation-inner {
-      max-width: 700px;
-      width: 100%;
-      margin-left: 180px; /* ⬅️ décalage à droite */
+      width: 700px;
       text-align: center;
+      margin-left: 0; /* collé à gauche */
     }
 
     .galerie img {
@@ -108,7 +102,7 @@
 
     .presentation p {
       max-width: 520px;
-      margin: 0 auto; /* 🎯 centrage texte */
+      margin: 0 auto; /* 🎯 centré sous le titre */
       font-size: 1.1rem;
       line-height: 1.6;
     }
@@ -161,8 +155,13 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
+      .galerie-presentation {
+        justify-content: center;
+        padding: 60px 20px;
+      }
+
       .galerie-presentation-inner {
-        margin-left: 0;
+        width: 100%;
       }
 
       .personnages-container {
@@ -177,7 +176,7 @@
   </style>
 </head>
 
-<body class="dark-mode">
+<body>
 
 <header>
   <button id="modeBtn" class="mode-header-btn">🌞 Mode clair</button>
