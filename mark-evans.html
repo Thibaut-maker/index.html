@@ -6,13 +6,12 @@
 <title>Mark Evans</title>
 
 <style>
-* { box-sizing: border-box; transition: 0.3s; }
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #e6f0ff;
   color: #1f2937;
+  text-align: center;
 }
 
 body.dark-mode {
@@ -22,58 +21,31 @@ body.dark-mode {
 
 header {
   background: #1e40af;
-  padding: 35px 20px;
-  text-align: center;
-  position: relative;
   color: white;
+  padding: 25px;
+  position: relative;
 }
-
-body.dark-mode header { background: #020617; }
 
 .mode-header-btn {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 10px 18px;
-  border-radius: 25px;
+  top: 15px;
+  left: 15px;
+  padding: 8px 16px;
+  border-radius: 20px;
   border: none;
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .back-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px 18px;
-  border-radius: 25px;
-  background: #facc15;
-  color: #1f2937;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-body.dark-mode .back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 20px;
   background: #2563eb;
   color: white;
-}
-
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-body.dark-mode .card {
-  background: #020617;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -82,18 +54,14 @@ body.dark-mode .card {
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
-  <a href="index.html" class="back-btn">⬅ Accueil</a>
   <h1>⚽ Mark Evans</h1>
 </header>
 
-<main>
-  <div class="card">
-    <p><strong>Poste :</strong> Gardien</p>
-    <p><strong>Description :</strong> Mark Evans et le captitaine de l'équipe raimon, il est le personnage principale sur qui sans lui l'équipe du collège Raimon n'aurai jamais exister.
-    <p><strong>Technique :</strong> Main Céleste(technique légendaire de Mark Evans) </p>
-    <p><strong>Rôle :</strong> Capitaine de l'équipe Raimon</p>
-  </div>
-</main>
+<p>Gardien légendaire de Raimon.</p>
+ <p><strong>Description :</strong> Mark Evans et le captitaine de l'équipe raimon, il est le personnage principale sur qui sans lui l'équipe du collège Raimon n'aurai jamais exister.
+<p>Technique : <strong>Main Céleste</strong></p>
+
+<a href="index.html" class="back-btn">⬅ Retour à l'accueil</a>
 
 <script>
 const modeBtn = document.getElementById("modeBtn");
@@ -107,7 +75,6 @@ function updateModeButton() {
     ? "🌞 Mode clair"
     : "🌙 Mode sombre";
 }
-
 updateModeButton();
 
 modeBtn.addEventListener("click", () => {
