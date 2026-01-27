@@ -22,30 +22,28 @@ body.dark-mode {
 header {
   background: #1e40af;
   color: white;
-  padding: 25px;
+  padding: 30px;
   position: relative;
 }
 
 .mode-header-btn {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 8px 16px;
-  border-radius: 20px;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .back-btn {
   display: inline-block;
   margin-top: 30px;
-  padding: 12px 20px;
+  padding: 12px 22px;
   background: #2563eb;
   color: white;
   text-decoration: none;
   border-radius: 25px;
-  font-weight: bold;
 }
 </style>
 </head>
@@ -57,35 +55,11 @@ header {
   <h1>⚽ Mark Evans</h1>
 </header>
 
-<p>Gardien légendaire de Raimon.</p>
- <p><strong>Description :</strong> Mark Evans et le captitaine de l'équipe raimon, il est le personnage principale sur qui sans lui l'équipe du collège Raimon n'aurai jamais exister.
+<p>Gardien emblématique de Raimon.</p>
 <p>Technique : <strong>Main Céleste</strong></p>
 
 <a href="index.html" class="back-btn">⬅ Retour à l'accueil</a>
 
-<script>
-const modeBtn = document.getElementById("modeBtn");
-
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-}
-
-function updateModeButton() {
-  modeBtn.textContent = document.body.classList.contains("dark-mode")
-    ? "🌞 Mode clair"
-    : "🌙 Mode sombre";
-}
-updateModeButton();
-
-modeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("dark-mode") ? "dark" : "light"
-  );
-  updateModeButton();
-});
-</script>
-
+<script src="theme.js"></script>
 </body>
 </html>
