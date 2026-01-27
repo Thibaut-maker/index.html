@@ -22,30 +22,28 @@ body.dark-mode {
 header {
   background: #dc2626;
   color: white;
-  padding: 25px;
+  padding: 30px;
   position: relative;
 }
 
 .mode-header-btn {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 8px 16px;
-  border-radius: 20px;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .back-btn {
   display: inline-block;
   margin-top: 30px;
-  padding: 12px 20px;
+  padding: 12px 22px;
   background: #dc2626;
   color: white;
   text-decoration: none;
   border-radius: 25px;
-  font-weight: bold;
 }
 </style>
 </head>
@@ -57,34 +55,11 @@ header {
   <h1>🔥 Axel Blaze</h1>
 </header>
 
-<p>Attaquant surpuissant au mental d'acier.</p>
+<p>Attaquant légendaire au mental d’acier.</p>
 <p>Technique : <strong>Frappe du Tigre</strong></p>
 
 <a href="index.html" class="back-btn">⬅ Retour à l'accueil</a>
 
-<script>
-const modeBtn = document.getElementById("modeBtn");
-
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-}
-
-function updateModeButton() {
-  modeBtn.textContent = document.body.classList.contains("dark-mode")
-    ? "🌞 Mode clair"
-    : "🌙 Mode sombre";
-}
-updateModeButton();
-
-modeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("dark-mode") ? "dark" : "light"
-  );
-  updateModeButton();
-});
-</script>
-
+<script src="theme.js"></script>
 </body>
 </html>
