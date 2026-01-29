@@ -13,11 +13,22 @@ body {
   font-family: Arial, sans-serif;
   background: #e6f0ff;
   color: #1f2937;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 body.dark-mode {
   background: #0b1024;
   color: #f1f5f9;
+}
+
+/* animation de transition */
+body.theme-transition {
+  animation: themeFade 0.5s ease;
+}
+
+@keyframes themeFade {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
 }
 
 /* HEADER */
@@ -66,7 +77,6 @@ section {
 .gallery img {
   width: 320px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* PERSONNAGES */
@@ -94,7 +104,6 @@ section {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 body.dark-mode .personnage {
