@@ -2,87 +2,32 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Axel Blaze</title>
-
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #e6f0ff;
-  color: #1f2937;
-  transition: background-color 0.6s ease, color 0.6s ease;
-}
-
-body.dark-mode {
-  background: #0b1024;
-  color: #f1f5f9;
-}
-
-body.theme-transition {
-  animation: themeFade 0.5s ease;
-}
-
-@keyframes themeFade {
-  from { opacity: 0.85; }
-  to { opacity: 1; }
-}
-
-header {
-  background: #b91c1c;
-  color: white;
-  padding: 30px;
-  text-align: center;
-  position: relative;
-}
-
-.mode-header-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 10px 18px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.back-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #facc15;
-  padding: 10px 18px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #1f2937;
-  font-weight: bold;
-}
-
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
-  text-align: center;
-}
+body { font-family: Arial; margin: 0; background: #e6f0ff; transition: 0.9s; }
+body.dark { background: #020617; color: white; }
+button { margin: 20px; padding: 10px 15px; }
 </style>
 </head>
 
 <body>
 
-<header>
-  <button id="modeBtn" class="mode-header-btn"></button>
-  <a href="index.html" class="back-btn">⬅ Accueil</a>
-  <h1>🔥 Axel Blaze</h1>
-</header>
+<button onclick="location.href='index.html'">⬅ Retour</button>
+<button id="themeBtn"></button>
 
-<section>
-  <p>
-    <strong>Présentation :</strong> Axel Blaze est un attaquant redoutable,
-    connu pour sa puissance et sa technique légendaire : la Tornade de Feu.
-  </p>
-</section>
+<h1>🔥 Axel Blaze</h1>
+<p>Attaquant – Frappe du Tigre</p>
 
-<script src="theme.js"></script>
+<script>
+const btn=document.getElementById("themeBtn");
+if(localStorage.getItem("theme")==="dark")document.body.classList.add("dark");
+btn.textContent=document.body.classList.contains("dark")?"🌞 Mode clair":"🌙 Mode sombre";
+btn.onclick=()=>{
+document.body.classList.toggle("dark");
+localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
+btn.textContent=document.body.classList.contains("dark")?"🌞 Mode clair":"🌙 Mode sombre";
+}
+</script>
+
 </body>
 </html>
