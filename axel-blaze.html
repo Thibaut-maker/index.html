@@ -11,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
   background: #e6f0ff;
   color: #1f2937;
-  text-align: center;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 body.dark-mode {
@@ -19,10 +19,20 @@ body.dark-mode {
   color: #f1f5f9;
 }
 
+body.theme-transition {
+  animation: themeFade 0.5s ease;
+}
+
+@keyframes themeFade {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
 header {
-  background: #dc2626;
+  background: #b91c1c;
   color: white;
   padding: 30px;
+  text-align: center;
   position: relative;
 }
 
@@ -34,16 +44,26 @@ header {
   border-radius: 25px;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .back-btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 22px;
-  background: #dc2626;
-  color: white;
-  text-decoration: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #facc15;
+  padding: 10px 18px;
   border-radius: 25px;
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: bold;
+}
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
 }
 </style>
 </head>
@@ -52,13 +72,16 @@ header {
 
 <header>
   <button id="modeBtn" class="mode-header-btn"></button>
+  <a href="index.html" class="back-btn">⬅ Accueil</a>
   <h1>🔥 Axel Blaze</h1>
 </header>
 
-<p>Attaquant légendaire au mental d’acier.</p>
-<p>Technique : <strong>Frappe du Tigre</strong></p>
-
-<a href="index.html" class="back-btn">⬅ Retour à l'accueil</a>
+<section>
+  <p>
+    <strong>Présentation :</strong> Axel Blaze est un attaquant redoutable,
+    connu pour sa puissance et sa technique légendaire : la Tornade de Feu.
+  </p>
+</section>
 
 <script src="theme.js"></script>
 </body>
