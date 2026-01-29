@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const modeBtn = document.getElementById("modeBtn");
 
-  // appliquer le thème au chargement
+  // appliquer le thème sauvegardé
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
   }
@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modeBtn) {
     modeBtn.addEventListener("click", () => {
+      // animation
+      document.body.classList.add("theme-transition");
+
       document.body.classList.toggle("dark-mode");
 
       localStorage.setItem(
@@ -25,6 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       updateModeButton();
+
+      setTimeout(() => {
+        document.body.classList.remove("theme-transition");
+      }, 500);
     });
   }
 });
